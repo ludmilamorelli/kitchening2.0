@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+       <section class="row">
+            <article class="col-12 col-md-8 mx-auto mb-5">
+                <div class="card">
+                        <div class="row g-0">
+                          <div class="col-md-7">
+                              <div class="row">
+                                  <div class="col-12">
+                                    <img id="imgMain" src="/images/products/<%= product.photos[0] %> " class="img-fluid rounded-start" alt="...">
+                                  </div>
+                                  <div class="col-12 mt-3">
+                                      <% product.photos.forEach(photo => { %>
+                                        <img width="100px" src="/images/products/<%= photo %>" alt="" onclick="document.getElementById('imgMain').setAttribute('src','/images/products/<%=photo%>')">
+                                      <% }) %>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-5">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= product.name %> </h5>
+                              <p class="card-text"><%= product.description %> </p>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+            </article>
+       </section>
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+       <section class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <% products.forEach((product,index) => { %>
+                    <tr>
+                        <th scope="row"><%= index + 1 %> </th>
+                        <th><img class="img-fluid" src="/images/products/<%= product.photos[0] %>" alt="">  </th>
+                        <td><%= product.name %> </td>
+                        <td><%= product.category %> </td>
+                        <td><%= product.description %> </td>
+                        <td class="d-flex justify-content-around">
+                            <div>
+                                <a class="btn btn-sm btn-success" href="/products/edit/<%= product.id %> " style="width: 35px;"><i class="fas fa-edit"></i></a>
+                            </div>
+                            <div>
+                                <form action="/products/destroy/<%= product.id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger" style="width: 35px;" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>
+             
+            
+            </tbody>
+          </table>
+       </section>
+    </main>
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>

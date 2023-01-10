@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main>
+        <section class="banner">
+            <img src="/images/img-banner.jpg" alt="">
+        </section>
+        <section class="products">
+            <% products.forEach(product => { %>
+                <article class="product">
+                    <div class="image-container">
+                        <img class="photo" src="/images/products/<%= product.photos[0] %>" alt="">
+                        <% if (product.category === "oferta") { %>
+                            <img class="label" src="/images/img-descuento.png" alt="">
+                        <% }else if(product.category === "nuevo"){ %>
+                            <img class="label" src="/images/img-nuevo.png" alt="">
+                        <% } else { %>
+                            <img class="label" src="/images/img-gratis.png" alt="">
+                        <% } %>
+                        
+                        <a class="zoom">ampliar foto</a>
+                    </div>
+                    <h4><%= product.name %> </h4>
+                    <p class="description">
+                        <%= product.description %> 
+                    </p>
+                    <a class="more" href="/products/detail/<%= product.id %>">ver más</a>
+                </article>
+            <% }) %>
+         
+          
+        </section>
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">Perfil de usuario</div>
+                    <div class="card-body">
+                        <form action="/users/profile?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="exampleInputName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="exampleInputName" name="name" value="<%= user.name  %>">
+                                <span class="text-danger small"><%= locals.errors && errors.name ? errors.name.msg : null %> </span>
+                              </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="<%= user.email  %>" readonly>
+                              <span class="text-danger small"><%= locals.errors && errors.email ? errors.email.msg : null %> </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword0" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="exampleInputPassword0" name="passOld">
+                                <span class="text-danger small"><%= locals.errors && errors.pass ? errors.pass.msg : null %> </span>
+                              </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Nueva contraseña</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+                              <span class="text-danger small"><%= locals.errors && errors.pass ? errors.pass.msg : null %> </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword2" class="form-label">Confirmar contraseña</label>
+                                <input type="password" class="form-control" id="exampleInputPassword2" name="pass2">
+                                <span class="text-danger small"><%= locals.errors && errors.pass2 ? errors.pass2.msg : null %> </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputAvatar" class="btn btn-secondary">Subir imagen de perfil</label>
+                                <input type="file" class="form-control" id="inputAvatar" name="avatar" hidden>
+                                <span class="text-danger small"><%= locals.errors && errors.avatar ? errors.avatar.msg : null %> </span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>

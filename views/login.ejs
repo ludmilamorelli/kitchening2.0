@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
+                              <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                            </div>
+                            <div class="my-3">
+                                <span class="text-danger small"><%= locals.errors && errors.email ? errors.email.msg : null %> </span>
+
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>

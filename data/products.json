@@ -1,0 +1,42 @@
+[
+  {
+    "id": 2,
+    "name": "Fin de año",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit iste earum odit quidem porro aliquid?",
+    "category": "nuevo",
+    "photos": [
+      "img-1630357261296.jpg",
+      "img-1630357261310.jpg",
+      "img-1630357261312.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Lorem ipsum amet",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit iste earum odit quidem porro aliquid?",
+    "category": "gratis",
+    "photos": [
+      "img-1630357494626.jpg",
+      "img-1630357494630.jpg",
+      "img-1630357494633.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Lorem ipsum amet",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit iste earum odit quidem porro aliquid?",
+    "category": "oferta",
+    "photos": [
+      "img-1630356617565.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Lorem ipsum amet",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit iste earum odit quidem porro aliquid?",
+    "category": "gratis",
+    "photos": [
+      "img-1630356630461.jpg"
+    ]
+  }
+]

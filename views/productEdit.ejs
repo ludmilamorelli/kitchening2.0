@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto mt-5">
+                <h2>Editar producto</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <form action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                              <label for="nombre" class="form-label">Nombre</label>
+                              <input type="text" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : locals.old && old.name ? 'is-valid' : null %>" id="nombre" name="name" value="<%= product.name %>">
+                              <span class="text-danger small"><%= locals.errors && errors.name ? errors.name.msg : null %> </span>
+                            </div>
+                            <div class="mb-3">
+                              <label for="description" class="form-label">Descripción</label>
+                              <textarea class="form-control <%= locals.errors && errors.description ? 'is-invalid' : locals.old && old.description ? 'is-valid' : null %>" id="description" name="description" style="resize: none;"><%= product.description %></textarea>
+                              <span class="text-danger small"><%= locals.errors && errors.description ? errors.description.msg : null %> </span>
+                            </div>
+                            <select class="form-select <%= locals.errors && errors.category ? 'is-invalid' : locals.old && old.category ? 'is-valid' : null %>" aria-label="Default select example" name="category">
+                                <option selected hidden value="">Seleccione la categoría</option>
+                                <% categories.forEach(category => { %>
+                                    <option value="<%= category %>" <%= product.category === category ? 'selected' : null %> ><%= capitalize(category) %></option>
+                                <% }) %>
+                              </select>
+                              <span class="text-danger small"><%= locals.errors && errors.category ? errors.category.msg : null %> </span>
+                              <div class="mb-3">
+                                <label for="image" class="form-label">Imagen</label>
+                                <input class="form-control <%= locals.errors && errors.image ? 'is-invalid' : locals.old && old.image ? 'is-valid' : null %>" type="file" id="image" name="image" multiple>
+                                <span class="text-danger small"><%= locals.errors && errors.image ? errors.image.msg : null %> </span>
+                              </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                          </form>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+
+</body>
+
+</html>
